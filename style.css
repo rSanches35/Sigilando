@@ -1,0 +1,185 @@
+@font-face {
+    font-family: 'Sigilos';
+    src: url('Regular-Sigilos.ttf') format('truetype');
+}
+
+/* Estilização geral */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #0a0a0a;
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Esconde o conteúdo até que a imagem seja carregada */
+.hidden {
+    visibility: hidden;
+}
+
+#logo {
+    width: 160px;
+    top: 10px;
+    left: 7px;
+    position: absolute;
+}
+
+/* Centraliza o container dos sigilos */
+.container {
+    text-align: center;
+    margin-top: 50px;
+    position: relative;
+}
+
+/* Estilizando o sigilo como texto */
+.sigilo {
+    user-select: none;
+    font-family: 'Sigilos', sans-serif;
+    font-size: 240px;
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+    transition: color 0.3s ease-in-out;
+}
+
+.brilho {
+    animation: glow 1.5s ease-in-out;
+}
+
+@keyframes glow {
+    0% {text-shadow: 0 0 3px rgba(255, 175, 37, 0.4), 0 0 6px rgba(255, 175, 37, 0.3);}
+    25% {text-shadow: 0 0 10px rgba(255, 175, 37, 0.7), 0 0 20px rgba(255, 175, 37, 0.5);}
+    88% {text-shadow: 0 0 3px rgba(255, 175, 37, 0.4), 0 0 6px rgba(255, 175, 37, 0.3);}
+}
+
+/* Efeito ao acertar */
+.sigilo-correto {
+    color: #FFAF25;
+}
+
+@keyframes tilt {
+    0% { transform: translateX(0); }
+    30% { transform: translateX(-3px); }
+    45% { transform: translateX(3px); }
+    60% { transform: translateX(-3px); }
+    60% { transform: translateX(3px); }
+    70% { transform: translateX(-3px); }
+    80% { transform: translateX(0); }
+    90% { transform: translateX(0); }
+    100% { transform: translateX(0); }
+}
+
+/* Efeito ao errar */
+.sigilo-incorreto {
+    color: #cc0000;
+    animation: tilt 0.2s ease-in-out 3;
+}
+
+/* Estilização do input */
+input {
+    margin-top: 50px;
+    padding: 10px;
+    width: 160px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background-color: #222;
+    color: white;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Efeito ao focar no input */
+input:focus {
+    outline: none;
+    border: 2px solid #cecece; /* Evita mudança de tamanho */
+}
+
+.respostas {
+    position: fixed;
+    bottom: 10px; /* Mesma altura do controle de volume */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta para o centro exato */
+    user-select: none;
+    font-family: 'Sigilos', sans-serif;
+    font-size: 35px;
+    color: #FFAF25;
+    transition: color 0.3s ease-in-out;
+}
+
+@keyframes fadeSlide {
+    0% {
+        opacity: 0;
+        transform: translateX(10px); /* Vem da direita */
+    }
+    100% {
+        opacity: 0.75;
+        transform: translateX(0); /* Chega na posição certa */
+    }
+}
+
+.animacao-letra {
+    display: inline-block; /* Evita quebra de linha */
+    animation: fadeSlide 0.3s ease-out;
+}
+
+
+/* Estilização dos botões */
+.botoes {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.botoes button {
+    padding: 10px 20px;
+    background-color: #333333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, transform 0.1s;
+}
+
+/* Efeito de hover nos botões */
+.botoes button:hover {
+    background-color: #777;
+    transform: scale(1.05);
+}
+
+.botao-selecionado {
+    background-color: #555555 !important;
+    color: #FFAF25 !important;
+}
+
+.botao-selecionado:hover {
+    background-color: #756957 !important;
+    transform: scale(1) !important;
+}
+
+/* Estilo do ícone de volume */
+.controle-volume {
+    position: fixed;
+    bottom: 5px;
+    right: 15px;
+    cursor: pointer;
+}
+
+#iconeVolume {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.1s;
+}
+
+#iconeVolume:hover {
+    transform: scale(1.1);
+}

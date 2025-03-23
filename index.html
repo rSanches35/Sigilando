@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigilando</title>
+
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="hidden">
+
+    <img id="logo" src="imagens/logo.png" alt="Sigilando">
+    <!--<<h1 id="logo">Sigilando</h1>-->
+
+    <div class="container">
+        <div id="sigiloAleatorio" class="sigilo"></div>
+        <input type="text" placeholder="Sigilo...">
+    </div>
+
+    <div class="botoes">
+        <button data-tipo="letras" onclick="selecionarCategoria('letras')">Letras</button>
+        <button data-tipo="pontos" onclick="selecionarCategoria('pontos')">Pontos</button>
+        <button data-tipo="todos" onclick="selecionarCategoria('todos')">Todos</button>
+    </div>
+
+    <div id="controleVolume" class="controle-volume">
+        <img src="imagens/volumeOn.png" alt="Volume" id="iconeVolume" />
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
